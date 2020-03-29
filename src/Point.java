@@ -1,4 +1,21 @@
-class Point {
+import java.util.collections.List;
+
+class Canvas{
+	List<Point> pointList;
+
+	public void addPoint(double x, double y, String color){
+		String newId = String.toString(pointList[pointList.length()-1].id + 1); //incrementing the last id for the new point
+		Point pt = new Point(newId, x, y, color);
+		this.pointList.add(pt);
+	}
+
+	public void deletePoint(String id){
+		int poistion = this.pointList.indexOf(id);
+		this.pointList.remove(poistion);
+	}
+}
+
+public class Point {
 	String id
 	double x,y;
 	String color;
